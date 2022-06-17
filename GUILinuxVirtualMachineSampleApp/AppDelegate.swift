@@ -28,6 +28,36 @@ class AppDelegate: NSObject, NSApplicationDelegate, VZVirtualMachineDelegate {
     override init() {
         super.init()
     }
+    
+    private func installRosetta() async {
+        do {
+            try await VZLinuxRosettaDirectoryShare.installRosetta()
+            // Success: The system installs Rosetta on the host system.
+        } catch {
+            fatalError("Could not install Rosetta")
+        }
+
+// TODO: The below `catch` code from Apple sample doesn't seem to work. I don't know why.
+
+//                } catch let error {
+//                    switch error.code {
+//                    case .networkError:
+//                        // A network error prevented the download from completing successfully.
+//                        fatalError("There was a network error while installing Rosetta. Please try again.")
+//                    case .outOfDiskSpace:
+//                        // Not enough disk space on the system volume to complete the installation.
+//                        fatalError("Your system does not have enuogh disk space to install Rosetta")
+//                    case .userCancelled:
+//                        // The user cancelled the installation.
+//                        break
+//                    case .notSupported:
+//                        // Rosetta isn't supported on the host Mac or macOS version.
+//                        break
+//                    default:
+//                        break // A non installer-related error occurred.
+//                    }
+//                }
+    }
 
     private func createVMBundle() {
         do {
@@ -180,6 +210,24 @@ class AppDelegate: NSObject, NSApplicationDelegate, VZVirtualMachineDelegate {
     // MARK: Create the virtual machine configuration and instantiate the virtual machine.
 
     func createVirtualMachine() {
+
+        let rosettaAvailability = VZLinuxRosettaDirectoryShare.availability
+
+        switch rosettaAvailability {
+        case .notSupported:
+            fatalError("Rosetta is not supported on your system")
+
+        case .notInstalled:
+            Task(priority: .medium) {
+                await installRosetta()
+            }
+            break
+        case .installed:
+            break // Ready to go.
+        @unknown default:
+            fatalError("Unknown error returned while checking for Rosetts")
+        }
+
         let virtualMachineConfiguration = VZVirtualMachineConfiguration()
 
         virtualMachineConfiguration.cpuCount = computeCPUCount()
@@ -219,6 +267,18 @@ class AppDelegate: NSObject, NSApplicationDelegate, VZVirtualMachineDelegate {
         virtualMachineConfiguration.keyboards = [VZUSBKeyboardConfiguration()]
         virtualMachineConfiguration.pointingDevices = [VZUSBScreenCoordinatePointingDeviceConfiguration()]
         virtualMachineConfiguration.consoleDevices = [createSpiceAgentConsoleDeviceConfiguration()]
+        
+        let tag = "ROSETTA"
+        do {
+            let _ = try VZVirtioFileSystemDeviceConfiguration.validateTag(tag)
+            let rosettaDirectoryShare = try VZLinuxRosettaDirectoryShare()
+            let fileSystemDevice = VZVirtioFileSystemDeviceConfiguration(tag: tag)
+            fileSystemDevice.share = rosettaDirectoryShare
+
+            virtualMachineConfiguration.directorySharingDevices = [ fileSystemDevice ]
+        } catch {
+            fatalError("Rosetta is not installed")
+        }
 
         try! virtualMachineConfiguration.validate()
         virtualMachine = VZVirtualMachine(configuration: virtualMachineConfiguration)
