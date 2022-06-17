@@ -326,6 +326,11 @@ class AppDelegate: NSObject, NSApplicationDelegate, VZVirtualMachineDelegate {
                     self.installerISOPath = openPanel.url!
                     self.configureAndStartVirtualMachine()
                 } else {
+                    do {
+                        try FileManager.default.removeItem(atPath: vmBundlePath)
+                    } catch {
+                        fatalError("ISO file not selected. Tried to cleanup but could not remove the bundle at: \(vmBundlePath). Please remove it manually as the VM app will crash with the bundle in it's current state.")
+                    }
                     fatalError("ISO file not selected.")
                 }
             }
