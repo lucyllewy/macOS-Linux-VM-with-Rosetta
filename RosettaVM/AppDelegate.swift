@@ -193,7 +193,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, VZVirtualMachineDelegate {
     private func createGraphicsDeviceConfiguration() -> VZVirtioGraphicsDeviceConfiguration {
         let graphicsDevice = VZVirtioGraphicsDeviceConfiguration()
         graphicsDevice.scanouts = [
-            VZVirtioGraphicsScanoutConfiguration(widthInPixels: 1280, heightInPixels: 720)
+            VZVirtioGraphicsScanoutConfiguration(widthInPixels: 1920, heightInPixels: 1080)
         ]
 
         return graphicsDevice
