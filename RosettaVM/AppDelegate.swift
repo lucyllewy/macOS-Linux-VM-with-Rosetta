@@ -401,6 +401,43 @@ class AppDelegate: NSObject, NSApplicationDelegate, VZVirtualMachineDelegate {
             }
         }
     }
+    
+    func applicationShouldTerminate(_ sender: NSApplication) -> NSApplication.TerminateReply {
+        do {
+            if self.virtualMachine.canRequestStop == true {
+                try self.virtualMachine.requestStop()
+                return NSApplication.TerminateReply.terminateCancel
+            } else {
+                throw RosettaVMError("Unable to request stop")
+            }
+        } catch let error {
+            let message = "Failed to stop VM"
+
+            print(message)
+
+            let alert = NSAlert()
+            alert.messageText = "Failed to stop VM"
+            alert.informativeText = "Could not automatically shut down the guest operating system: \(error.localizedDescription)"
+            alert.addButton(withTitle: "Force close")
+            alert.addButton(withTitle: "Continue running")
+            
+            var forceClose: NSApplication.TerminateReply = .terminateLater
+            alert.beginSheetModal(for: self.window) { (result) in
+                switch result {
+                case .alertFirstButtonReturn:
+                    forceClose = NSApplication.TerminateReply.terminateNow
+                    break
+                case .alertSecondButtonReturn:
+                    forceClose = NSApplication.TerminateReply.terminateCancel
+                    break
+                default:
+                    forceClose = NSApplication.TerminateReply.terminateCancel
+                    break
+                }
+            }
+            return forceClose
+        }
+    }
 
     func applicationShouldTerminateAfterLastWindowClosed(_ sender: NSApplication) -> Bool {
         return true
@@ -413,29 +450,19 @@ class AppDelegate: NSObject, NSApplicationDelegate, VZVirtualMachineDelegate {
 
         print(message)
 
-        Task { @MainActor in
-            let alert = NSAlert()
-            alert.messageText = "VM Stopped"
-            alert.informativeText = message
+        let alert = NSAlert()
+        alert.messageText = "VM Stopped"
+        alert.informativeText = message
 
-            await alert.beginSheetModal(for: self.window)
+        alert.beginSheetModal(for: self.window) { (result) in
             exit(-1)
         }
     }
 
     func guestDidStop(_ virtualMachine: VZVirtualMachine) {
         let message = "Guest did stop virtual machine."
-
         print(message)
-
-        Task { @MainActor in
-            let alert = NSAlert()
-            alert.messageText = "VM Stopped"
-            alert.informativeText = message
-
-            await alert.beginSheetModal(for: self.window)
-            exit(0)
-        }
+        exit(0)
     }
 
     func virtualMachine(_ virtualMachine: VZVirtualMachine, networkDevice: VZNetworkDevice, attachmentWasDisconnectedWithError error: Error) {
