@@ -14,15 +14,15 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		352BF37B653363BBBB1015AC /* SampleCode.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = SampleCode.xcconfig; path = Configuration/SampleCode.xcconfig; sourceTree = "<group>"; };
+		339FE71F285D691C00B303F6 /* SampleCode.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = SampleCode.xcconfig; path = Configuration/SampleCode.xcconfig; sourceTree = "<group>"; };
 		62A7A2B81952CC2F11BFE9A2 /* LICENSE.txt */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
 		8F0313B127CB143B00360D7E /* Virtualization.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Virtualization.framework; path = System/Library/Frameworks/Virtualization.framework; sourceTree = SDKROOT; };
 		8FDC7765280E2517002AA4ED /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8FF8298927500C060037FA83 /* GUILinuxVirtualMachineSampleApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GUILinuxVirtualMachineSampleApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8FF8298927500C060037FA83 /* RosettaVM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RosettaVM.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8FF8298C27500C060037FA83 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8FF8298E27500C070037FA83 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8FF8299127500C070037FA83 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
-		8FF8299327500C070037FA83 /* GUILinuxVirtualMachineSampleApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GUILinuxVirtualMachineSampleApp.entitlements; sourceTree = "<group>"; };
+		8FF8299327500C070037FA83 /* RosettaVM.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = RosettaVM.entitlements; sourceTree = "<group>"; };
 		E489E24B87B74AAC6D64B249 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -41,7 +41,7 @@
 		7C99BD11C87A466A17F398E6 /* Configuration */ = {
 			isa = PBXGroup;
 			children = (
-				352BF37B653363BBBB1015AC /* SampleCode.xcconfig */,
+				339FE71F285D691C00B303F6 /* SampleCode.xcconfig */,
 			);
 			name = Configuration;
 			sourceTree = "<group>";
@@ -50,7 +50,7 @@
 			isa = PBXGroup;
 			children = (
 				E489E24B87B74AAC6D64B249 /* README.md */,
-				8FF8298B27500C060037FA83 /* GUILinuxVirtualMachineSampleApp */,
+				8FF8298B27500C060037FA83 /* RosettaVM */,
 				8FF8298A27500C060037FA83 /* Products */,
 				8FF82999275040C80037FA83 /* Frameworks */,
 				7C99BD11C87A466A17F398E6 /* Configuration */,
@@ -61,21 +61,21 @@
 		8FF8298A27500C060037FA83 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				8FF8298927500C060037FA83 /* GUILinuxVirtualMachineSampleApp.app */,
+				8FF8298927500C060037FA83 /* RosettaVM.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		8FF8298B27500C060037FA83 /* GUILinuxVirtualMachineSampleApp */ = {
+		8FF8298B27500C060037FA83 /* RosettaVM */ = {
 			isa = PBXGroup;
 			children = (
 				8FDC7765280E2517002AA4ED /* Info.plist */,
 				8FF8298C27500C060037FA83 /* AppDelegate.swift */,
 				8FF8298E27500C070037FA83 /* Assets.xcassets */,
 				8FF8299027500C070037FA83 /* MainMenu.xib */,
-				8FF8299327500C070037FA83 /* GUILinuxVirtualMachineSampleApp.entitlements */,
+				8FF8299327500C070037FA83 /* RosettaVM.entitlements */,
 			);
-			path = GUILinuxVirtualMachineSampleApp;
+			path = RosettaVM;
 			sourceTree = "<group>";
 		};
 		8FF82999275040C80037FA83 /* Frameworks */ = {
@@ -97,9 +97,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		8FF8298827500C060037FA83 /* GUILinuxVirtualMachineSampleApp */ = {
+		8FF8298827500C060037FA83 /* RosettaVM */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 8FF8299627500C070037FA83 /* Build configuration list for PBXNativeTarget "GUILinuxVirtualMachineSampleApp" */;
+			buildConfigurationList = 8FF8299627500C070037FA83 /* Build configuration list for PBXNativeTarget "RosettaVM" */;
 			buildPhases = (
 				8FF8298527500C060037FA83 /* Sources */,
 				8FF8298627500C060037FA83 /* Frameworks */,
@@ -109,9 +109,9 @@
 			);
 			dependencies = (
 			);
-			name = GUILinuxVirtualMachineSampleApp;
+			name = RosettaVM;
 			productName = GUILinuxVirtualMachineSampleApp;
-			productReference = 8FF8298927500C060037FA83 /* GUILinuxVirtualMachineSampleApp.app */;
+			productReference = 8FF8298927500C060037FA83 /* RosettaVM.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -130,7 +130,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 8FF8298427500C060037FA83 /* Build configuration list for PBXProject "GUILinuxVirtualMachineSampleApp" */;
+			buildConfigurationList = 8FF8298427500C060037FA83 /* Build configuration list for PBXProject "RosettaVM" */;
 			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -143,7 +143,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				8FF8298827500C060037FA83 /* GUILinuxVirtualMachineSampleApp */,
+				8FF8298827500C060037FA83 /* RosettaVM */,
 			);
 		};
 /* End PBXProject section */
@@ -185,7 +185,7 @@
 /* Begin XCBuildConfiguration section */
 		8FF8299427500C070037FA83 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 352BF37B653363BBBB1015AC /* SampleCode.xcconfig */;
+			baseConfigurationReference = 339FE71F285D691C00B303F6 /* SampleCode.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -217,7 +217,7 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_ENTITLEMENTS = GUILinuxVirtualMachineSampleApp/GUILinuxVirtualMachineSampleApp.entitlements;
+				CODE_SIGN_ENTITLEMENTS = RosettaVM/RosettaVM.entitlements;
 				CODE_SIGN_INJECT_BASE_ENTITLEMENTS = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
@@ -252,7 +252,7 @@
 		};
 		8FF8299527500C070037FA83 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 352BF37B653363BBBB1015AC /* SampleCode.xcconfig */;
+			baseConfigurationReference = 339FE71F285D691C00B303F6 /* SampleCode.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -284,7 +284,7 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_ENTITLEMENTS = GUILinuxVirtualMachineSampleApp/GUILinuxVirtualMachineSampleApp.entitlements;
+				CODE_SIGN_ENTITLEMENTS = RosettaVM/RosettaVM.entitlements;
 				CODE_SIGN_INJECT_BASE_ENTITLEMENTS = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
@@ -313,12 +313,13 @@
 		};
 		8FF8299727500C070037FA83 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 352BF37B653363BBBB1015AC /* SampleCode.xcconfig */;
+			baseConfigurationReference = 339FE71F285D691C00B303F6 /* SampleCode.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = "$(PROJECT_DIR)/GUILinuxVirtualMachineSampleApp/GUILinuxVirtualMachineSampleApp.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "$(PROJECT_DIR)/RosettaVM/RosettaVM.entitlements";
 				CODE_SIGN_IDENTITY = "Mac Developer";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_INJECT_BASE_ENTITLEMENTS = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -327,9 +328,12 @@
 				DEVELOPMENT_TEAM = 4ML6BWG72P;
 				ENABLE_HARDENED_RUNTIME = NO;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "$(PROJECT_DIR)/GUILinuxVirtualMachineSampleApp/Info.plist";
+				INFOPLIST_FILE = "$(PROJECT_DIR)/RosettaVM/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = RosettaVM;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INFOPLIST_KEY_NSMainNibFile = MainMenu;
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Allow for using audio input devices.";
 				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -338,7 +342,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				MARKETING_VERSION = 1.0;
 				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.example.apple-samplecode.GUILinuxVirtualMachineSampleApp${SAMPLE_CODE_DISAMBIGUATOR}";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.diddledani.RosettaVM-${SAMPLE_CODE_DISAMBIGUATOR}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = macosx13.0;
@@ -349,11 +353,11 @@
 		};
 		8FF8299827500C070037FA83 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 352BF37B653363BBBB1015AC /* SampleCode.xcconfig */;
+			baseConfigurationReference = 339FE71F285D691C00B303F6 /* SampleCode.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = "$(PROJECT_DIR)/GUILinuxVirtualMachineSampleApp/GUILinuxVirtualMachineSampleApp.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "$(PROJECT_DIR)/RosettaVM/RosettaVM.entitlements";
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				CODE_SIGN_INJECT_BASE_ENTITLEMENTS = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -363,9 +367,12 @@
 				DEVELOPMENT_TEAM = 4ML6BWG72P;
 				ENABLE_HARDENED_RUNTIME = NO;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "$(PROJECT_DIR)/GUILinuxVirtualMachineSampleApp/Info.plist";
+				INFOPLIST_FILE = "$(PROJECT_DIR)/RosettaVM/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = RosettaVM;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INFOPLIST_KEY_NSMainNibFile = MainMenu;
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Allow for using audio input devices.";
 				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -374,7 +381,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				MARKETING_VERSION = 1.0;
 				ONLY_ACTIVE_ARCH = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.example.apple-samplecode.GUILinuxVirtualMachineSampleApp${SAMPLE_CODE_DISAMBIGUATOR}";
+				PRODUCT_BUNDLE_IDENTIFIER = com.diddledani.RosettaVM;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = macosx13.0;
@@ -386,7 +393,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		8FF8298427500C060037FA83 /* Build configuration list for PBXProject "GUILinuxVirtualMachineSampleApp" */ = {
+		8FF8298427500C060037FA83 /* Build configuration list for PBXProject "RosettaVM" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				8FF8299427500C070037FA83 /* Debug */,
@@ -395,7 +402,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		8FF8299627500C070037FA83 /* Build configuration list for PBXNativeTarget "GUILinuxVirtualMachineSampleApp" */ = {
+		8FF8299627500C070037FA83 /* Build configuration list for PBXNativeTarget "RosettaVM" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				8FF8299727500C070037FA83 /* Debug */,

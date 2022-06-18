@@ -18,10 +18,10 @@ run the VM:
 1. If your account is not listed click the `+` button at the bottom of the list
    and login to your Apple Developer account
 1. Close the settings window
-1. Open the `GUILinuxVirtualMachineSampleApp.xcodeproj` project file in XCode
+1. Open the `RosettaVM.xcodeproj` project file in XCode
 1. Click the left-hand sidebar entry at the top of the tree labelled
-   `GUILinuxVirtualMachineSampleApp`
-1. In the right-hand pane navigate to the TARGETS entry `GUILinuxVirtualMachineSampleApp`
+   `RosettaVM`
+1. In the right-hand pane navigate to the TARGETS entry `RosettaVM`
 1. Click the top-bar entry labelled `Signing & Capabilities`
 1. In the `Team` drop-down select your Apple Developer account/team
 1. Click the `>` (Run) button at the top-left of the XCode window
