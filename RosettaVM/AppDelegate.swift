@@ -401,10 +401,16 @@ class AppDelegate: NSObject, NSApplicationDelegate, VZVirtualMachineDelegate {
             }
         }
     }
-    
+
     func applicationShouldTerminate(_ sender: NSApplication) -> NSApplication.TerminateReply {
         do {
             if self.virtualMachine.canRequestStop == true {
+                let alert = NSAlert()
+                alert.messageText = "Stopping VM"
+                alert.informativeText = "Sent a stop command to the guest operating system. You might need to manually trigger the shutdown within the guest OS if it doesn't shutdown automatically."
+
+                alert.beginSheetModal(for: self.window)
+
                 try self.virtualMachine.requestStop()
                 return NSApplication.TerminateReply.terminateCancel
             } else {
@@ -420,7 +426,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, VZVirtualMachineDelegate {
             alert.informativeText = "Could not automatically shut down the guest operating system: \(error.localizedDescription)"
             alert.addButton(withTitle: "Force close")
             alert.addButton(withTitle: "Continue running")
-            
+
             var forceClose: NSApplication.TerminateReply = .terminateLater
             alert.beginSheetModal(for: self.window) { (result) in
                 switch result {
