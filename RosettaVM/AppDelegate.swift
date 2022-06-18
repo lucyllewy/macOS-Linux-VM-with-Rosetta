@@ -265,6 +265,9 @@ class AppDelegate: NSObject, NSApplicationDelegate, VZVirtualMachineDelegate {
         }
         virtualMachineConfiguration.storageDevices = disks
 
+        virtualMachineConfiguration.memoryBalloonDevices = [VZVirtioTraditionalMemoryBalloonDeviceConfiguration()]
+        virtualMachineConfiguration.entropyDevices = [VZVirtioEntropyDeviceConfiguration()]
+
         virtualMachineConfiguration.networkDevices = [try createNetworkDeviceConfiguration()]
         virtualMachineConfiguration.graphicsDevices = [createGraphicsDeviceConfiguration()]
         virtualMachineConfiguration.audioDevices = [createInputAudioDeviceConfiguration(), createOutputAudioDeviceConfiguration()]
