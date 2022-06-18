@@ -7,34 +7,45 @@ and tested is on YouTube.
 
 ### Building the app
 
-To build and run you need to be an active Apple Developer ($99 per year fee
-applies).
+The built app is downloadable at [the releases page](https://github.com/diddledani/macOS-Linux-VM-with-Rosetta/releases),
+or you can build the app yourself with XCode 13 Beta.
 
-If or when you are an active Apple Developer perform the following to build and
-run the VM:
+If you want to build the VM app yoursef, rather than using the pre-built download,
+do the following:
 
-1. Open XCode and select from the menu bar `XCode` -> `Settings`
+1. Open XCode-beta and select from the menu bar `XCode` -> `Settings`
 1. In the settings dialog navigate to `Accounts`
 1. If your account is not listed click the `+` button at the bottom of the list
-   and login to your Apple Developer account
+   and login to your Apple Developer account (a free account is sufficient)
 1. Close the settings window
+1. Clone the git repository off GitHub, e.g.
+   `git clone https://github.com/diddledani/macOS-Linux-VM-with-Rosetta.git`
 1. Open the `RosettaVM.xcodeproj` project file in XCode
 1. Click the left-hand sidebar entry at the top of the tree labelled
    `RosettaVM`
 1. In the right-hand pane navigate to the TARGETS entry `RosettaVM`
 1. Click the top-bar entry labelled `Signing & Capabilities`
-1. In the `Team` drop-down select your Apple Developer account/team
+1. In the `Team` drop-down select your Apple Developer account/team, and set
+   the `Signing Certificate` drop-down to `Sign to run locally`
 1. Click the `>` (Run) button at the top-left of the XCode window
 
-### Once the app is build and running
+### Setting up Rosetta
 
-You should be prompted by the app to select a Linux installer ISO.
-[Ubuntu 22.04](https://cdimage.ubuntu.com/ubuntu/releases/22.04/release/ubuntu-22.04-live-server-arm64.iso)
+When you start the RosettaVM app, you should be prompted by the app to select
+a Linux installer ISO. [Ubuntu 22.04](https://cdimage.ubuntu.com/ubuntu/releases/22.04/release/ubuntu-22.04-live-server-arm64.iso)
 server is known to be compatible (there is no desktop version for ARM64 CPUs).
 
 Once you've supplied the app with an installation ISO file it should start the
 Virtual Machine. You need to follow the standard installation of the distro that
 you have downloaded.
+
+If you're using the Ubuntu Server ISO you will need to install `binfmt-support`
+to provide the `update-binfmts` command which we will use below to enable the
+Rosetta wrapper. To install `binfmt-support` run:
+
+```bash
+sudo apt install -y binfmt-support
+```
 
 Once installed, you need to execute the following commands inside the Linux VM
 to enable Rosetta to intercept x86_64 binaries:
@@ -82,3 +93,28 @@ To install an x86_64/amd64 library in Ubuntu once you've updated your
 ```bash
 sudo apt install libx11-6:amd64
 ```
+
+### Installing the Ubuntu Destktop for graphical applications
+
+When you install Ubuntu Server with the above ISO you will only have a command-line
+environment. You can upgrade from Ubuntu Server to Ubuntu Desktop by evecuting the
+following commands, which will take a while to complete:
+
+```bash
+sudo apt update
+sudo apt -y full-upgrade
+sudo apt -y install ubuntu-desktop^
+```
+
+Note: the `^` symbol is important when you want to install `ubuntu-desktop` as this
+tells `apt` to use a `task` which defines the complete Ubuntu Desktop. If you omit
+the symbol you may not get a fully-installed desktop. You won't need to use the `^`
+for any *other* `apt install` calls, however, only for `ubuntu-desktop`.
+
+Once the process completes, you should reboot the VM with the following command:
+
+```bash
+sudo reboot
+```
+
+After the VM reboots you should see the graphical login screen.
