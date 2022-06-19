@@ -86,7 +86,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, VZVirtualMachineDelegate {
         do {
             try FileManager.default.createDirectory(atPath: vmBundlePath, withIntermediateDirectories: false)
         } catch {
-            throw RosettaVMError("There was an error creating “GUI Linux VM.bundle“ in your home folder.")
+            throw RosettaVMError("There was an error creating “\(vmBundlePath)“.")
         }
     }
 
