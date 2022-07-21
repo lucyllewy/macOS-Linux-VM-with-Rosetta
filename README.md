@@ -34,9 +34,8 @@ do the following:
 When you start the RosettaVM app, you should be prompted by the app to select
 a Linux installer ISO.
 
-[Ubuntu 22.04 Desktop](https://cdimage.ubuntu.com/jammy/daily-live/current/jammy-desktop-arm64.iso)
-
-[Ubuntu 22.04 Server](https://cdimage.ubuntu.com/releases/22.04/release/ubuntu-22.04-live-server-arm64.iso)
+- [Ubuntu 22.04 Desktop](https://cdimage.ubuntu.com/jammy/daily-live/current/jammy-desktop-arm64.iso) (This is a daily build of the ISO and is classed as unstable, meaning that any poarticular day's download may have bugs - There is currently no 'stable' ISO for the desktop release)
+- [Ubuntu 22.04 Server](https://cdimage.ubuntu.com/releases/22.04/release/ubuntu-22.04-live-server-arm64.iso)
 
 Once you've supplied the app with an installation ISO file it should start the
 Virtual Machine. You need to follow the standard installation of the distro that
