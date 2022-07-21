@@ -32,7 +32,10 @@ do the following:
 ### Setting up Rosetta
 
 When you start the RosettaVM app, you should be prompted by the app to select
-a Linux installer ISO. [Ubuntu 22.04 Desktop](https://cdimage.ubuntu.com/jammy/daily-live/current/jammy-desktop-arm64.iso)
+a Linux installer ISO.
+
+[Ubuntu 22.04 Desktop](https://cdimage.ubuntu.com/jammy/daily-live/current/jammy-desktop-arm64.iso)
+
 [Ubuntu 22.04 Server](https://cdimage.ubuntu.com/releases/22.04/release/ubuntu-22.04-live-server-arm64.iso)
 
 Once you've supplied the app with an installation ISO file it should start the
@@ -94,7 +97,7 @@ To install an x86_64/amd64 library in Ubuntu once you've updated your
 sudo apt install libx11-6:amd64
 ```
 
-### Installing the Ubuntu Destktop for graphical applications
+### Installing the Ubuntu Desktop for graphical applications (Only when Server ISO were choosen)
 
 When you install Ubuntu Server with the above ISO you will only have a command-line
 environment. You can upgrade from Ubuntu Server to Ubuntu Desktop by evecuting the
