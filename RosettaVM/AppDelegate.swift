@@ -49,30 +49,25 @@ class AppDelegate: NSObject, NSApplicationDelegate, VZVirtualMachineDelegate {
             do {
                 try await VZLinuxRosettaDirectoryShare.installRosetta()
                 // Success: The system installs Rosetta on the host system.
-            } catch {
-                throw RosettaVMError("There was an error installing Rosetta or the installation was cancelled.")
+            } catch let error as VZError {
+                // must catch as VZError type to have the VZError codes
+                switch error.code {
+                    case .networkError:
+                        // A network error prevented the download from completing successfully.
+                        fatalError("There was a network error while installing Rosetta. Please try again.")
+                    case .outOfDiskSpace:
+                        // Not enough disk space on the system volume to complete the installation.
+                        fatalError("Your system does not have enuogh disk space to install Rosetta")
+                    case .operationCancelled:
+                        // The user cancelled the installation.
+                        break
+                    case .notSupported:
+                        // Rosetta isn't supported on the host Mac or macOS version.
+                        break
+                    default:
+                        break // A non installer-related error occurred.
+                }
             }
-
-            // TODO: The below `catch` code from Apple sample doesn't seem to work. I don't know why.
-
-            //                } catch let error {
-            //                    switch error.code {
-            //                    case .networkError:
-            //                        // A network error prevented the download from completing successfully.
-            //                        fatalError("There was a network error while installing Rosetta. Please try again.")
-            //                    case .outOfDiskSpace:
-            //                        // Not enough disk space on the system volume to complete the installation.
-            //                        fatalError("Your system does not have enuogh disk space to install Rosetta")
-            //                    case .userCancelled:
-            //                        // The user cancelled the installation.
-            //                        break
-            //                    case .notSupported:
-            //                        // Rosetta isn't supported on the host Mac or macOS version.
-            //                        break
-            //                    default:
-            //                        break // A non installer-related error occurred.
-            //                    }
-            //                }
             break
         case .installed:
             break // Ready to go.
