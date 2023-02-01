@@ -5,6 +5,11 @@
 The [Live stream recording](https://youtu.be/OrMjQtPxo5Y) where this was built
 and tested is on YouTube.
 
+### Download correct Ubuntu
+You see in the Live stream we failed to find the desktop version, but it does exist, the correct url is
+https://cdimage.ubuntu.com/focal/daily-live/current/focal-desktop-arm64.iso 
+If you just go to ubuntu.com/download on a Mac it will download the amd64 version, which is not the same as arm64. When you have the wrong version you will get the dialog box to select the image and then the app crashes.
+
 ### Building the app
 
 The built app is downloadable at [the releases page](https://github.com/diddledani/macOS-Linux-VM-with-Rosetta/releases),
